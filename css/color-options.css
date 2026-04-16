@@ -1,0 +1,39 @@
+.color-options {
+    margin-top: 1rem;
+    display: flex;
+    gap: 0.5rem;
+    list-style: none;
+    padding: 0;
+}
+
+.color-options li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+}
+
+.color-options li:hover {
+    cursor: pointer;
+}
+
+.color {
+    display: block;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+}
+
+.color.black {
+    background-color: black;
+}
+
+.color.white {
+    background-color: wheat;
+}
+
+.color-options li.active {
+    border: 1px solid #ccc;
+}

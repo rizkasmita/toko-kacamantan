@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toko Kacamantan</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <!-- Feather Icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
+
+    <!-- css -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/color-options.css">
+</head>
+<body>
+
+    <!-- navbar -->
+     <nav class="navbar">
+        <a href="#" class="navbar-logo"><img src="img/logo.jpg" alt=""></a>
+
+        <div class="navbar-nav">
+            <a href="#">Beranda</a>
+            <a href="#about">Tentang Kami</a>
+            <a href="#products">Produk Kami</a>
+            <a href="#findus">Temukan Kami</a>
+        </div>
+
+        <div class="navbar-extra">
+            <a href="#" id="hamburger-menu"><i data-feather="menu"></i></a>
+        </div>
+     </nav>
+
+     <!-- Hero section -->
+      <section class="hero" id="#home">
+        <main class="content">
+            <h1>Temukan Gaya<br><span style="color: #9d1c20;">Kacamata</span> Kamu</h1>
+            <p>Coba berbagai model kacamata secara langsung menggunakan teknologi Augmented Reality dan temukan gaya yang paling sesuai dengan wajah Anda. </p>
+            <a href="#products" class="cta">Produk Kami</a>
+        </main>
+      </section>
+
+      <!-- about section -->
+       <section id="about" class="about">
+        <h2><span>Tentang</span> Kami</h2>
+        <div class="row">
+            <div class="about-img">
+                <img src="img/about-us.jpg" alt="About Us">
+            </div>
+            <div class="content">
+                <h3>Pengalaman Baru Mencoba <span style="color: #9d1c20;">Kacamata</span></h3>
+                <p>Kami menghadirkan cara baru dalam memilih kacamata. Dengan memanfaatkan teknologi Augmented Reality, kami menghadirkan pengalaman baru bagi pengguna untuk mencoba kacamata secara virtual sebelum menentukan pilihan yang sesuai.</p>
+                <p>Dengan berbagai pilihan model yang stylish dan nyaman, kami membantu Anda menemukan gaya yang paling sesuai dengan diri Anda.</p>
+            </div>
+        </div>
+       </section>
+
+       <!-- product section -->
+        <section class="products" id="products">
+            <h2><span>Produk</span> Kami</h2>
+            <p>Eksplor berbagai model kacamata dan lihat langsung bagaimana tampilannya di wajah Anda dengan pengalaman Augmented Reality.</p>
+
+            <div class="row" id="product-list">
+            </div>
+        </section>
+         
+
+        <!-- find us section -->
+        <div id="findus" class="findus">
+            <h2>Temukan Kami</h2>
+            <div class="row">
+                <div class="findus-map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.6899661313696!2d117.13720477404108!3d-0.4595865352793898!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2df679d0996dc1af%3A0xe148ea6c22aefa9f!2sKacamantan%20(Toko%20Kacamata)!5e0!3m2!1sid!2sid!4v1771817453133!5m2!1sid!2sid" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="map"></iframe>
+                </div>
+                <div class="findus-locs">
+                    <h3>Lokasi Lainnya</h3>
+                    <div class="loc" style="margin-bottom: 2rem;">
+                        <a href="https://maps.app.goo.gl/tX8g7C5BstdU8Cmu5" target="_blank">Suryanata</a>
+                        <p>Jl. P. Suryanata, Bukit Pinang, Kec. Samarinda Ulu, Kota Samarinda, Kalimantan Timur 75124</p>
+                    </div>
+                    <div class="loc">
+                        <a href="https://maps.app.goo.gl/eJtrQMFU33xNGsTJ9" target="_blank">M. Said</a>
+                        <p>Jl. Moh. Said, Lok Bahu, Kec. Sungai Kunjang, Kota Samarinda, Kalimantan Timur 75243</p>
+                    </div>
+                </div>
+                <div class="findus-socmed">
+                    <h3>Ikuti Kami</h3>
+                    <div class="socmeds">
+                        <a href="https://instagram.com/kacamantan_id" target="_blank"><i data-feather="instagram"></i></a>
+                        <a href="#"><i data-feather="facebook"></i></a>
+                        <a href="https://wa.link/rk9olj"><i data-feather="mail"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- footer -->
+        <footer>
+            <div class="footer-bottom">
+                <div class="links">
+                    <a href="#home">Beranda</a>
+                    <a href="#about">Tentang Kami</a>
+                    <a href="#products">Produk Kami</a>
+                    <a href="#findus">Temukan Kami</a>
+                </div>
+    
+                <div class="credit">
+                    <p>Created by <a href="">rizkasmita</a>. | &copy; 2026</p>
+                </div>
+            </div>
+         </footer>        
+        
+        <!-- modal box product detail -->
+        <div class="modal" id="item-detail-modal">
+            <div class="modal-container" style="background-color: darkgrey; z-index: -1;">
+                <a href="" class="close-icon"><i data-feather="x"></i></a>
+                <div class="modal-content" style="margin-top: 5rem;">
+                    <div class="modal-img">
+                        <img src="" alt="Product 1" id="modal-img">
+                    </div>
+                    <div class="product-content">
+                        <h3 id="modal-title">Product 1</h3>
+                        <ul class="color-options">
+                            <li data-color="black" id="colblack" title="Black"><span class="color black"></span></li>
+                            <li data-color="white" id="colwhite" title="No Color"><span class="color white"></span></li>
+                            <!-- <li><span></span></li> -->
+                        </ul>
+                        <p id="modal-desc"></p>
+
+                        <div class="details">
+                            <table>
+                                <tr>
+                                    <th>Tipe</th>
+                                    <td class="tipe"></td>
+                                </tr>
+                                <tr>
+                                    <th>Jenis Kelamin</th>
+                                    <td class="jk"></td>
+                                </tr>
+                                <tr>
+                                    <th>Fungsi</th>
+                                    <td class="fungsi"></td>
+                                </tr>
+                                <tr>
+                                    <th>Berat</th>
+                                    <td class="berat"></td>
+                                </tr>
+                                <tr>
+                                    <th>Bentuk Wajah</th>
+                                    <td class="bentuk"></td>
+                                </tr>
+                                <tr>
+                                    <th>Gaya</th>
+                                    <td class="gaya"></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    <!-- Feather Icons -->
+    <script>
+      feather.replace();
+    </script>
+
+    <!-- js -->
+     <script src="js/products.js"></script>
+     <script src="js/script.js"></script>
+</body>
+</html>
