@@ -86,7 +86,7 @@ document.querySelector('#btn-3d').addEventListener('click', async () => {
 const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 const model = document.querySelector('#wrapper');
 if (isMobile) {
-    model.setAttribute('position', '0 -0.9 -0.5');
+    model.setAttribute('position', '0 -0.95 -0.2');
 } else {
     model.setAttribute('position', '0 0 -0.28');
 }
