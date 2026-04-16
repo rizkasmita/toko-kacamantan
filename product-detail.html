@@ -123,7 +123,7 @@
             </model-viewer>
         </div>
         <div class="vto-container">
-            <a-scene id="vto-scene" mindar-face="autoStart: false; smoothCount: 10; smoothTolerance: 0.01; smoothThreshold: 5" embedded color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false" style="height: 100%; width: 100%;">
+            <a-scene id="vto-scene" mindar-face="autoStart: false;" embedded color-space="sRGB" renderer="colorManagement: true; precision: mediump; antialias: false, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false" style="height: 100%; width: 100%;">
               <a-assets>
                   <a-asset-item id="readingGlasses" src="assets/readingglasses-white.glb"></a-asset-item>
                   <a-asset-item id="manGlasses" src="assets/manglasses-white.glb"></a-asset-item>
@@ -132,10 +132,8 @@
                   <a-asset-item id="womanGlasses" src="assets/womanglasses-white.glb"></a-asset-item>
               </a-assets>
               <a-camera active="false" position="0 0 0"></a-camera>
-              <a-entity mindar-face-target="anchorIndex: 168">
-                <a-entity id="wrapper" position="0 0 0" scale="0.25 0.25 0.25">
-                    <a-gltf-model rotation="0 0 0" src="#readingGlasses" class="readingGlasses-entity" visible="false"></a-gltf-model>
-                </a-entity>
+              <a-entity id="face" mindar-face-target="anchorIndex: 168">
+                <a-gltf-model rotation="0 0 0" position="0 0 -0.28" scale="0.25 0.25 0.25" src="#readingGlasses" class="readingGlasses-entity" visible="false"></a-gltf-model>
               </a-entity>
               <a-entity mindar-face-target="anchorIndex: 168">
                   <a-gltf-model rotation="0 0 0" position="0 0.06 -0.28" scale="0.27 0.27 0.27" src="#manGlasses" class="manGlasses-entity" visible="false"></a-gltf-model>

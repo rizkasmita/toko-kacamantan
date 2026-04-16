@@ -54,15 +54,15 @@ document.querySelector('#btn-ar').addEventListener('click', async () => {
     modelContainer.style.display = 'none';
     vtoContainer.style.display = 'block';
 
-    started = true;
-
     document.querySelector('#btn-ar').setAttribute("disabled", true);
     document.querySelector('#btn-3d').removeAttribute("disabled");
-
+    
     await new Promise(resolve => setTimeout(resolve, 200));
-
+    
     const mindarSystem = vtoScene.systems["mindar-face-system"];
     await mindarSystem.start();
+
+    started = true;
 
     window.dispatchEvent(new Event('resize'));
 })
@@ -87,18 +87,18 @@ document.querySelector('#btn-3d').addEventListener('click', async () => {
 //     console.log('coba test');
 // });
 
-// const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-// const model = document.querySelector('#wrapper');
-// if (isMobile) {
-//     model.setAttribute('position', '0 0 0');
-// } else {
-//     model.setAttribute('position', '0 0 -0.28');
-// }
+const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+const model = document.querySelector('a-gltf-model');
+if (isMobile) {
+    model.setAttribute('position', '0 -0.9 0');
+} else {
+    model.setAttribute('position', '0 0 -0.28');
+}
 
-// console.log(model.getAttribute('position'));
+console.log(model.getAttribute('position'));
 
 const scene = document.querySelector("a-scene");
-const startBtn = document.querySelector("#startAR");
+// const startBtn = document.querySelector("#startAR");
 
 const face = document.querySelector("#face");
 const wrapper = document.querySelector("#wrapper");
@@ -115,45 +115,46 @@ const wrapper = document.querySelector("#wrapper");
 // });
 
 
-function lerp(start, end, t) {
-  return start + (end - start) * t;
-}
+// function lerp(start, end, t) {
+//   return start + (end - start) * t;
+// }
 
-let smoothScale = 0.28;
-let smoothY = 0.02;
-let smoothZ = 0.02;
+// let smoothScale = 0.28;
+// let smoothY = 0.02;
+// let smoothZ = 0.02;
 
-let lastPos = new THREE.Vector3();
-let lastRot = new THREE.Euler();
+// let lastPos = new THREE.Vector3();
+// let lastRot = new THREE.Euler();
 
-function update() {
-  if (!face.object3D.visible) return;
+// function update() {
+//   if (!face.object3D.visible) return;
 
-  const pos = face.object3D.position.clone();
+//   const pos = face.object3D.position.clone();
 
-  pos.z = Math.max(-1, Math.min(1, pos.z));
+//   pos.z = Math.max(-1, Math.min(1, pos.z));
 
-  const targetScale = 0.28 * (1 + pos.z * 0.3);
-  const targetY = 0.02 + pos.z * 0.01;
-  const targetZ = 0.02 + pos.z * 0.015;
+//   const targetScale = 0.28 * (1 + pos.z * 0.3);
+//   const targetY = 0.02 + pos.z * 0.01;
+//   const targetZ = 0.02 + pos.z * 0.015;
 
-  smoothScale = lerp(smoothScale, targetScale, 0.08);
-  smoothY = lerp(smoothY, targetY, 0.08);
-  smoothZ = lerp(smoothZ, targetZ, 0.08);
+//   smoothScale = lerp(smoothScale, targetScale, 0.08);
+//   smoothY = lerp(smoothY, targetY, 0.08);
+//   smoothZ = lerp(smoothZ, targetZ, 0.08);
 
-  const smoothPos = lastPos.lerp(pos, 0.1);
+//   const smoothPos = lastPos.lerp(pos, 0.1);
 
-  wrapper.object3D.scale.set(smoothScale, smoothScale, smoothScale);
-  wrapper.object3D.position.set(0, smoothY, smoothZ);
+//   wrapper.object3D.scale.set(smoothScale, smoothScale, smoothScale);
+//   wrapper.object3D.position.set(0, smoothY, smoothZ);
 
-  lastPos.copy(smoothPos);
-}
+//   lastPos.copy(smoothPos);
+// }
 
-scene.addEventListener("renderstart", () => {
-  scene.renderer.setAnimationLoop(() => {
-    update();
-  });
-});
+// scene.addEventListener("renderstart", () => {
+//   scene.renderer.setAnimationLoop(() => {
+//     update();
+//     console.log('ok');
+//   });
+// });
 
 document.querySelectorAll('.color-options li').forEach(item => {
     item.addEventListener('click', () => {
