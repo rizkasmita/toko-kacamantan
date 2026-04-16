@@ -83,55 +83,15 @@ document.querySelector('#btn-3d').addEventListener('click', async () => {
 //     console.log('coba test');
 // });
 
-// const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-// const model = document.querySelector('a-gltf-model');
-// if (isMobile) {
-//     model.setAttribute('position', '0 0 -0.28');
-// } else {
-//     model.setAttribute('position', '0 0 -0.28');
-// }
-
-// console.log(model.getAttribute('position'));
-
-const face = document.querySelector('[mindar-face-target]');
-const wrapper = document.querySelector('#wrapper');
-
-let smoothScale = 0.3;
-let smoothY = 0.03;
-let smoothZ = 0.05;
-
-function lerp(start, end, t) {
-    return start + (end - start) * t;
+const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+const model = document.querySelector('a-gltf-model');
+if (isMobile) {
+    model.setAttribute('position', '0 0 0');
+} else {
+    model.setAttribute('position', '0 0 -0.28');
 }
 
-function autoAdjust() {
-    if (!face.object3D.visible) return;
-
-    const z = face.object3D.position.z;
-
-    const targetScale = 0.28 * (1 + z * 0.6);
-
-    // 🎯 OFFSET Y (naik turun)
-    const targetY = 0.03 + (z * 0.02);
-
-    // 🎯 OFFSET Z (maju mundur)
-    const targetZ = 0.05 + (z * 0.03);
-
-    // 🔥 smoothing biar ga goyang
-    smoothScale = lerp(smoothScale, targetScale, 0.1);
-    smoothY = lerp(smoothY, targetY, 0.1);
-    smoothZ = lerp(smoothZ, targetZ, 0.1);
-
-    // apply ke wrapper
-    wrapper.object3D.scale.set(smoothScale, smoothScale, smoothScale);
-    wrapper.object3D.position.set(0, smoothY, smoothZ);
-};
-
-AFRAME.registerComponent('auto-adjust', {
-    tick: function() {
-        autoAdjust();
-    }
-});
+console.log(model.getAttribute('position'));
 
 document.querySelectorAll('.color-options li').forEach(item => {
     item.addEventListener('click', () => {
