@@ -47,8 +47,6 @@ const vtoContainer = document.querySelector('.vto-container');
 const vtoScene = document.querySelector('#vto-scene');
 const modelContainer = document.querySelector('.model-container');
 
-let started = false;
-
 document.querySelector('#btn-ar').addEventListener('click', async () => {
     console.log('ok');
     modelContainer.style.display = 'none';
@@ -61,8 +59,6 @@ document.querySelector('#btn-ar').addEventListener('click', async () => {
     
     const mindarSystem = vtoScene.systems["mindar-face-system"];
     await mindarSystem.start();
-
-    started = true;
 
     window.dispatchEvent(new Event('resize'));
 })
@@ -78,83 +74,6 @@ document.querySelector('#btn-3d').addEventListener('click', async () => {
 
     modelContainer.style.display = 'block';
 });
-
-// const faceEntity = document.querySelector('[mindar-face-target]');
-// faceEntity.addEventListener("targetFound", () => {
-//     const model = faceEntity.querySelector('a-gltf-model');
-//     model.object3D.scale.set(0.25, 0.25, 0.25);
-
-//     console.log('coba test');
-// });
-
-const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-const model = document.querySelector('a-gltf-model');
-if (isMobile) {
-    model.setAttribute('position', '0 -0.9 0');
-} else {
-    model.setAttribute('position', '0 0 -0.28');
-}
-
-console.log(model.getAttribute('position'));
-
-const scene = document.querySelector("a-scene");
-// const startBtn = document.querySelector("#startAR");
-
-const face = document.querySelector("#face");
-const wrapper = document.querySelector("#wrapper");
-
-// let started = false;
-
-// startBtn.addEventListener("click", async () => {
-//   if (started) return;
-
-//   const mindarSystem = scene.systems["mindar-face-system"];
-//   await mindarSystem.start();
-
-//   started = true;
-// });
-
-
-// function lerp(start, end, t) {
-//   return start + (end - start) * t;
-// }
-
-// let smoothScale = 0.28;
-// let smoothY = 0.02;
-// let smoothZ = 0.02;
-
-// let lastPos = new THREE.Vector3();
-// let lastRot = new THREE.Euler();
-
-// function update() {
-//   if (!face.object3D.visible) return;
-
-//   const pos = face.object3D.position.clone();
-
-//   pos.z = Math.max(-1, Math.min(1, pos.z));
-
-//   const targetScale = 0.28 * (1 + pos.z * 0.3);
-//   const targetY = 0.02 + pos.z * 0.01;
-//   const targetZ = 0.02 + pos.z * 0.015;
-
-//   smoothScale = lerp(smoothScale, targetScale, 0.08);
-//   smoothY = lerp(smoothY, targetY, 0.08);
-//   smoothZ = lerp(smoothZ, targetZ, 0.08);
-
-//   const smoothPos = lastPos.lerp(pos, 0.1);
-
-//   wrapper.object3D.scale.set(smoothScale, smoothScale, smoothScale);
-//   wrapper.object3D.position.set(0, smoothY, smoothZ);
-
-//   lastPos.copy(smoothPos);
-// }
-
-// scene.addEventListener("renderstart", () => {
-//   scene.renderer.setAnimationLoop(() => {
-//     update();
-//     console.log('ok');
-//   });
-// });
 
 document.querySelectorAll('.color-options li').forEach(item => {
     item.addEventListener('click', () => {
